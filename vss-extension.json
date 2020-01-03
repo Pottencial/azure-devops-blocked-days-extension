@@ -1,0 +1,72 @@
+{
+    "manifestVersion": 1.0,
+    "id": "blocked-days-extension",
+    "version": "0.2.0",
+    "name": "Update WorkItem Blocked Days",
+    "description": "Auto calculate blocked days from User Story",
+    "public": false,
+    "publisher": "PottencialSeguradora",
+    "icons": {
+        "default": "images/fabrikam-logo.png"
+    },
+    "tags": [
+        "blocked-days"
+    ],
+    "categories": ["Azure Repos"], 
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+    "scopes": [
+        "vso.work", 
+        "vso.work_write"
+    ],
+    "files": [
+        {
+            "path": "images",
+            "addressable": true
+        },
+        {
+            "path": "dist",
+            "addressable": true,
+            "packagePath": "scripts"
+        },
+        {
+            "path": "blockedDays.html",
+            "addressable": true
+        }, 
+        {
+            "path": "node_modules/vss-web-extension-sdk/lib",
+            "addressable": true,
+            "packagePath": "lib"
+        }
+    ],
+    "contributions": [
+        {
+            "id": "blocked-days-work-item-form-observer",
+            "type": "ms.vss-work-web.work-item-notifications",
+            "description": "Update the 'Blocked Days'",
+            "targets": [
+                "ms.vss-work-web.work-item-form"
+            ],
+            "properties": {
+                "uri": "blockedDays.html"
+            }
+        },    
+        {
+            "id": "blocked-days-contextMenu",
+            "type": "ms.vss-web.action",
+            "description": "Work item context menu action to update the 'Blocked Days' field value for the selected work items.",
+            "targets": [
+                "ms.vss-work-web.work-item-context-menu"
+            ],
+            "properties": {
+                "text": "Refresh 'Blocked Days'",
+                "title": "Refresh 'Blocked Days'",
+                "icon": "images/show-properties.png",
+                "uri": "blockedDays.html"
+            }
+        }
+    ]
+}

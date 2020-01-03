@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "module": "amd",
+        "moduleResolution": "node",
+        "removeComments": false,
+        "preserveConstEnums": true,
+        "sourceMap": false,
+
+        "skipLibCheck": true,
+        "outDir": "dist",
+        "types": [
+            "vss-web-extension-sdk"
+        ]
+    },   
+    "include": [
+        "src/**/*.tsx"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts"
+    ] 
+}
